@@ -1,0 +1,101 @@
+package com.baina.GameServer.sxiong;
+
+public class DN_TYPE {
+	public static byte UNDEFINED = -2;//Î´¶¨Òå
+	public static byte MEI_NIU = 0; // Ã»Å£
+	public static byte NIU_DING = 1; // Å£¶¡
+	public static byte NIU_ER = 2; // Å£¶þ
+	public static byte NIU_SAN = 3; // Å£Èý
+	public static byte NIU_SI = 4; // Å£ËÄ
+	public static byte NIU_WU = 5; // Å£Îå
+	public static byte NIU_LIU = 6; // Å£Áù
+	public static byte NIU_QI = 7; // Å£Æß
+	public static byte NIU_BA = 8; // Å£°Ë
+	public static byte NIU_JIU = 9; // Å£¾Å
+	public static byte NIU_NIU = 10; // Å£Å£
+
+	public static byte SI_ZHA = 11; // ËÄÕ¨
+	public static byte WU_HUA_NIU = 12; // Îå»¨Å£
+	public static byte WU_XIAO_NIU = 13; // ÎåÐ¡Å£
+
+	public static byte FangKuai = 1;
+	public static byte YingTao = 2;
+	public static byte TaoHua = 3;
+	public static byte HeiTao = 4;
+
+	public static byte DN_TYPE_COUNT;// place holder.
+
+	public static String GetDNType(byte type2) {
+		String type = "error";
+		switch (type2) {
+		case 0:
+			type = "Ã»Å£";
+			break;
+		case 1:
+			type = "Å£¶¡";
+			break;
+		case 2:
+			type = "Å£¶þ";
+			break;
+		case 3:
+			type = "Å£Èý";
+			break;
+		case 4:
+			type = "Å£ËÄ";
+			break;
+		case 5:
+			type = "Å£Îå";
+			break;
+		case 6:
+			type = "Å£Áù";
+			break;
+		case 7:
+			type = "Å£Æß";
+			break;
+		case 8:
+			type = "Å£°Ë";
+			break;
+		case 9:
+			type = "Å£¾Å";
+			break;
+		case 10:
+			type = "Å£Å£";
+			break;
+		case 11:
+			type = "ËÄÕ¨";
+			break;
+		case 12:
+			type = "Îå»¨Å£";
+			break;
+		case 13:
+			type = "ÎåÐ¡Å£";
+			break;
+		default:
+			type = "error";
+			break;
+		}
+		return type;
+	}
+
+	public static String GetColorType(byte tType) {
+		String type = "";
+		switch (tType) {
+		case 1:
+			type = "·½¿é";
+			break;
+		case 2:
+			type = "Ó£ÌÒ";
+			break;
+		case 3:
+			type = "ÌÒ»¨";
+			break;
+		case 4:
+			type = "ºÚÌÒ";
+			break;
+		default:
+			type = "error";
+			break;
+		}
+		return type;
+	}
+}
