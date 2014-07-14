@@ -28,6 +28,9 @@ public class DN_TYPE {
 	public static String GetDNType(byte type2) {
 		String type = "error";
 		switch (type2) {
+		case -2:
+			type = "Œ¥∂®“Â";
+			break;
 		case 0:
 			type = "√ª≈£";
 			break;

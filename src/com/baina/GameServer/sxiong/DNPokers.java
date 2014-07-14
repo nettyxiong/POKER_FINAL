@@ -42,8 +42,10 @@ public class DNPokers {
 
 		int[] threeInt = new int[3];// 保存三个值的和为10的牌在数组中的下标
 		threeInt = threeOfFive_Poker();// 获取三个下标
-		if (threeInt[0] == threeInt[1] && threeInt[1] == threeInt[2]
-				&& threeInt[0] == threeInt[2]) {
+		if (threeInt[0] == threeInt[1] && threeInt[1] == threeInt[2]) {
+			hasNiu = false;
+		}
+		else {
 			hasNiu = true;
 		}
 		if (hasNiu == false)
@@ -112,10 +114,11 @@ public class DNPokers {
 						threeInt[0] = i;
 						threeInt[1] = j;
 						threeInt[2] = k;
+						i = j = k = NUM;//跳出循环
 					}
 		return threeInt;
 	}
-	
+
 	/**
 	 * 
 	 * @param a
@@ -126,7 +129,7 @@ public class DNPokers {
 	public int[] twoOfFive_Poker(int a, int b, int c) {
 		int[] twoInt = new int[2];// 保存另外两张牌在数组中的下标
 		boolean flagFirstOrSecond = false;
-		for (int index = 0; index < 5; index++) {
+		for (int index = 0; index < NUM; index++) {
 			if (index != a && index != b && index != c) {
 				if (!flagFirstOrSecond) {
 					twoInt[0] = index;

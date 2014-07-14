@@ -1,9 +1,9 @@
 package com.baina.GameServer.sxiong;
 
 public class Poker {
-	private byte poker_value = 0;//牌的显示值
-	private byte poker_color = 0;//牌的显示花色
-	private byte real_value = 0;//牌的计算值（最大为10）
+	private byte poker_value = 0;// 牌的显示值
+	private byte poker_color = 0;// 牌的显示花色
+	private byte real_value = 0;// 牌的计算值（最大为10）
 
 	public byte getPoker_value() {
 		return poker_value;
@@ -30,10 +30,6 @@ public class Poker {
 		return real_value;
 	}
 
-	public void setReal_value(byte real_value) {
-		this.real_value = real_value;
-	}
-
 	public Poker(byte i, byte j) {// 构造函数
 		if (i > PokerSuit.MAX_DNPOKER_VALUE || i < PokerSuit.MIN_DNPOKER_VALUE
 				|| j < PokerSuit.MIN_DNPOKER_COLOR_VALUE
@@ -41,8 +37,8 @@ public class Poker {
 		{
 			Reset();// 都置为0
 		} else {// 符合要求
-			poker_color = j;
 			poker_value = i;
+			poker_color = j;
 		}
 	}
 

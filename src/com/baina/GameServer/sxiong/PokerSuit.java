@@ -12,7 +12,24 @@ public class PokerSuit {
 	public static final short XiPai_CiShu = 30;// 洗牌次数
 
 	private Poker pokers[] = new Poker[MAX_DNPOKER_COUNT];
+
+	public void setPokers(Poker poker, int index) {
+		this.pokers[index] = poker;
+	}
+
+	public Poker[] getPokers() {
+		return pokers;
+	}
+
 	private byte poker_Position = 0;
+
+	public byte getPoker_Position() {
+		return poker_Position;
+	}
+
+	public void setPoker_Position(byte poker_Position) {
+		this.poker_Position = poker_Position;
+	}
 
 	private int[] indexOfThree = new int[3];
 	private int[] indexOfTwo = new int[2];
@@ -24,7 +41,7 @@ public class PokerSuit {
 
 	public void initPokers(byte minPoker, byte maxPoker)// 初始化牌
 	{
-		assert (minPoker <= maxPoker);
+		assert (minPoker < maxPoker);
 
 		int poker_count_color = maxPoker - minPoker + 1;
 		int total_poker_count = DNPOKER_COLOR_COUNT * poker_count_color;
@@ -151,7 +168,6 @@ public class PokerSuit {
 							dnPokers.getPoker()[numk++] = pokers[poker_Position++];
 						}
 					}
-
 					if (k < 10) {
 						for (int i = poker_Position; i < MAX_DNPOKER_COUNT; i++) {
 							if (pokers[i].getPoker_value() != k
@@ -166,9 +182,7 @@ public class PokerSuit {
 						return null;
 					} else {
 						for (int i = poker_Position; i < poker_Num_Left; i++) {
-							if (pokers[i].getPoker_value() != k
-									&& (4 * k + pokers[i].getPoker_value()) > 10
-									&& pokers[i].getPoker_value() < 10) {
+							if (pokers[i].getPoker_value() < 10) {
 								exchange_TowPoker(pokers[poker_Position],
 										pokers[i]);
 								dnPokers.getPoker()[4] = pokers[poker_Position++];
@@ -217,10 +231,12 @@ public class PokerSuit {
 	}
 
 	public void exchange_TowPoker(Poker poker_a, Poker poker_b) {
-		Poker poker_tempPoker = null;
-		poker_tempPoker = poker_a;
-		poker_a = poker_b;
-		poker_b = poker_tempPoker;
+		Poker poker_tempPoker = new Poker((byte) poker_a.getPoker_value(),
+				(byte) poker_a.getPoker_color());
+		poker_a.setPoker_value(poker_b.getPoker_value());
+		poker_a.setPoker_color(poker_b.getPoker_color());
+		poker_b.setPoker_value(poker_tempPoker.getPoker_value());
+		poker_b.setPoker_color(poker_tempPoker.getPoker_color());
 	}
 
 	public boolean MeiNiuCheck(Poker[] poker) {
